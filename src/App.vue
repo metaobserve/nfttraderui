@@ -24,7 +24,7 @@
               <el-menu-item index="/shop">SHOP</el-menu-item>
               <el-menu-item index="/ROADMAP">ROADMAP</el-menu-item>
               <el-menu-item index="/LOGIN">LOGIN</el-menu-item>
-
+              <el-menu-item index="/connent">connent</el-menu-item>
               <el-menu-item>MINT</el-menu-item>
             </el-menu>
           </el-col>

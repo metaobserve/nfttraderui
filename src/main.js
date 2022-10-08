@@ -9,6 +9,8 @@ import './styles/global.less'
 import router from './router'
 
 import './injects'
+import '@/scripts/metamask'
+//import * as metamask from '@/scripts/metamask'
 import App from './App.vue'
 
 /* 条件编译 (必须是运行时可用的环境变量，并且变量值不能为 undefined，否则模块必定会打包) */
