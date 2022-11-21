@@ -1,3 +1,9 @@
 /* 官方示例：http://mockjs.com/examples.html */
-// 根据数据协议写模型
+
+import createMock from './createMock'
+import * as news from './news'
+const myMock = createMock(process.env.VUE_APP_BASEURL_API)
+
 /* 统一在这里注册 */
+myMock('reg:/news/getList\\?.+', news.getList)
+myMock('reg:/news/getDetails/.+', news.getDetails)

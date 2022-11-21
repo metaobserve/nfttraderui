@@ -7,7 +7,7 @@ import './element-ui' // @PC.element-ui
 // import './vant' // @H5.vant
 import './styles/global.less'
 import router from './router'
-
+import store from './store'
 import './injects'
 import '@/scripts/metamask'
 //import * as metamask from '@/scripts/metamask'
@@ -28,5 +28,6 @@ Vue.config.productionTip = false
 
 export default new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')

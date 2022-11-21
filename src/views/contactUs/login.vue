@@ -3,33 +3,41 @@
     <div class="login container">
       <div class="loginbox">
         <div class="l-iner">
-          <el-form label-width="0px">
-            <el-form-item style=" text-align:center; ">
-              <h2 class="title">connect wallet</h2>
-            </el-form-item>
+          <h2 class="title">Login</h2>
+          <el-form
+            :label-position="labelPosition"
+            label-width="0px"
+            model="top"
+          >
             <el-form-item>
               <div>
-                <el-button round @click="connectToEthereumNetwork()">
-                  <img
-                    title="Metamask"
-                    src="https://www.element.market/build/metamask-68578df0.svg"
-                    alt="Metamask"
-                  />
+                <el-button type="info" round>
+                  Fast login with other account
                 </el-button>
-                <span style="font-family: monospace;">{{ ethAccount }}</span>
               </div>
             </el-form-item>
-
+            <el-form-item>
+              <el-input
+                class="loginput"
+                placeholder="input your Phone、Mail or UserName "
+                v-model="formLabel.name"
+              ></el-input>
+            </el-form-item>
             <el-form-item>
               <div>
-                <el-button round @click="signData()">
-                  <img
-                    title="Metamask"
-                    src="https://www.element.market/build/metamask-68578df0.svg"
-                    alt="Metamask"
-                  />
-                </el-button>
-                <span style="font-family: monospace;">{{ ethAccount }}</span>
+                <el-button type="danger" round>Login Now</el-button>
+              </div>
+            </el-form-item>
+            <el-form-item>
+              <div>
+                <el-button round>Forgot PassWrod？</el-button>
+              </div>
+            </el-form-item>
+            <el-form-item>
+              <div>
+                <el-button type="text" round>
+                  No Account ? Regist now</el-button
+                >
               </div>
             </el-form-item>
           </el-form>
@@ -38,101 +46,18 @@
     </div>
   </div>
 </template>
+
 <script>
-const sigUtil = require('eth-sig-util')
-import axios from 'axios'
-import { getMetamaskAccount } from '@/scripts/metamask'
 export default {
   name: 'Login',
   data() {
     return {
-      ethereum: null,
-      ethAccount: '',
+      formLabel: {
+        name: '',
+        region: '',
+        type: '',
+      },
     }
-  },
-  mounted() {
-    this.ethereum = window.ethereum
-  },
-  methods: {
-    connectToEthereumNetwork() {
-      // const promise = this.ethereum.request({ method: 'eth_requestAccounts' })
-      // // Present feedback
-      // // Don't believe just the css feedback, see the console.
-      // console.log('We got a promise here: ', promise)
-      // promise.then(res => {
-      //   if (res.length === 0) return
-      //   this.ethAccount = res[0]
-      // })
-      // //this.ethAccount = promise.
-      let token
-      axios.get('/wallet/token').then(
-        response => {
-          debugger
-          token = response.data.Token
-          getMetamaskAccount(account => {
-            this.ethAccount = account
-            axios
-              .post('/wallet/login', {
-                token: token,
-                address: account,
-              })
-              .then(
-                response => {
-                  debugger
-                  console.log(response.data)
-                },
-                response => {
-                  debugger
-                  console.log('error')
-                },
-              )
-          })
-        },
-        response => {
-          console.log('error')
-        },
-      )
-    },
-    signData() {
-      const msgParams = [
-        {
-          type: 'string', // Any valid solidity type
-          name: 'Message', // Any string label you want
-          value: 'Hi, Alice!', // The value to sign
-        },
-        {
-          type: 'uint32',
-          name: 'A number',
-          value: '1337',
-        },
-      ]
-      const from = this.ethAccount
-      const params = [msgParams, from]
-      const method = 'eth_signTypedData'
-      window.web3.currentProvider.sendAsync(
-        {
-          method,
-          params,
-          from,
-        },
-        function(err, result) {
-          if (err) return console.error(err)
-          if (result.error) {
-            return console.error(result.error.message)
-          }
-          debugger
-          const recovered = sigUtil.recoverTypedSignature({
-            data: msgParams,
-            sig: result.result,
-          })
-          if (recovered === from) {
-            alert('Recovered signer: ' + from)
-          } else {
-            alert('Failed to verify signer, got: ' + result)
-          }
-        },
-      )
-    },
   },
 }
 </script>

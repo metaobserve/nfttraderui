@@ -10,17 +10,13 @@
         <el-col :span="12"
           ><div class="grid-content bg-purple-light">
             <div class="searchbar">
-              <el-input
-                placeholder="请输入内容"
-                prefix-icon="el-icon-search"
-                v-model="inp1"
-              />
+              <el-input placeholder="请输入内容" prefix-icon="el-icon-search" />
             </div></div
         ></el-col>
       </el-row>
     </div>
     <div>
-      <el-row class="row-bg" gutter="20">
+      <el-row class="row-bg" :gutter="20">
         <el-col
           v-for="index in 30"
           :key="index"
@@ -77,26 +73,26 @@ export default {
     .nft-creater {
       padding: 0 0 15px 0;
       .tname {
+        margin: 0 5px;
         vertical-align: middle;
         font-weight: 600;
-        margin: 0 5px;
       }
       .avatar {
         display: inline-block;
-        vertical-align: middle;
-        border-radius: 20px;
         overflow: hidden;
+        border-radius: 20px;
+        vertical-align: middle;
         img {
-          height: 30px;
           width: 30px;
+          height: 30px;
         }
       }
     }
     .nft-figure {
-      border-radius: 6px;
       overflow: hidden;
-      box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
       margin-bottom: 10px;
+      border-radius: 6px;
+      box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
       img {
         width: 100%;
       }
@@ -130,8 +126,8 @@ export default {
 .nfts-content {
   margin-left: -1px;
   .part-title {
-    border-bottom: 0.5px solid #ddd;
     margin-bottom: 20px;
+    border-bottom: 0.5px solid #ddd;
   }
   .searchbar {
     margin: auto 0 auto auto;
@@ -139,9 +135,9 @@ export default {
   }
   .ltitle {
     height: 60px;
+    color: #a72a2b;
     font-size: 20px;
     line-height: 55px;
-    color: #a72a2b;
   }
   .background {
     margin-bottom: 64px;
@@ -156,9 +152,9 @@ export default {
     }
     ul {
       .trait-tit {
-        list-style: disc;
         margin-left: 15px;
         color: #414d5a;
+        list-style: disc;
       }
       .pay {
         margin: 30px 0 62px 0;
@@ -173,10 +169,10 @@ export default {
         }
         span {
           display: inline-block;
-          width: 84px;
-          font-size: 22px;
           margin-left: 25px;
+          width: 84px;
           vertical-align: middle;
+          font-size: 22px;
         }
       }
       @media (max-width: 768px) {

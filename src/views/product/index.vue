@@ -18,7 +18,6 @@
                       <el-input
                         placeholder="请输入内容"
                         prefix-icon="el-icon-search"
-                        v-model="inp1"
                       />
                     </div>
                     <el-checkbox-group v-model="form.type1">
@@ -346,7 +345,7 @@ export default {
   },
   methods: {
     handleChange(val) {
-      val
+      console.log(val)
     },
     handleSelect(key) {
       this.currentView = key
@@ -371,30 +370,30 @@ export default {
   margin-bottom: 15px;
 }
 /deep/ .el-collapse-item__header {
-  font-size: 20px;
   color: #9b011b;
   font-weight: 600;
+  font-size: 20px;
 }
 .menu-title {
-  font-size: 60px;
-  font-weight: 600;
   color: #a72a2b;
+  font-weight: 600;
+  font-size: 60px;
 }
 .product-page {
-  padding: 55px 0 95px;
   box-sizing: border-box;
+  padding: 55px 0 95px;
 }
 
 .side-nav .nav-item {
-  font-size: 16px;
-  line-height: 40px;
-  height: 100%;
+  position: relative;
+  display: block;
   margin: 0;
   padding: 0;
+  height: 100%;
   text-decoration: none;
-  display: block;
-  position: relative;
   font-weight: 700;
+  font-size: 16px;
+  line-height: 40px;
 }
 @media (max-width: 768px) {
   .side-nav {

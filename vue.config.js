@@ -18,19 +18,9 @@ module.exports = () => ({
   devServer: {
     /* 更详细的配置规则：https://webpack.docschina.org/configuration/dev-server/#devserver-proxy */
     proxy: {
-      // [env.VUE_APP_BASEURL_API]: {
-      //   pathRewrite: { '^/(api|@API)': '' },
-      //   //target: env.DEV_PROXY_TARGET_API,
-      // },
-      '/wallet': {
-        target: 'http://localhost:8081',
-        // target: 'http://192.168.1.7:9999',
-        // target: 'http://192.168.1.166:7000',
-        ws: false,
-        changeOrigin: true,
-        // pathRewrite: {
-        //   '^/api': ''
-        // }
+      [env.VUE_APP_BASEURL_API]: {
+        pathRewrite: { '^/(api|@API)': '' },
+        target: env.DEV_PROXY_TARGET_API,
       },
     },
     host: 'localhost', // 需要内网的其它机器也能访问时，将值改成 '0.0.0.0'

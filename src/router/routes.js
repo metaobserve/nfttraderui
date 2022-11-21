@@ -49,18 +49,18 @@ export const routes = [
       import(/* webpackChunkName: "gallary" */ '@/views/contactUs/login.vue'),
   },
   {
-    path: '/connent',
-    name: 'connent',
-    meta: { title: 'connent' },
-    component: () =>
-      import(/* webpackChunkName: "gallary" */ '@/views/contactUs/login.vue'),
-  },
-  {
     path: '/roadmap',
     name: 'roadmap',
     meta: { title: 'roadmap' },
     component: () =>
       import(/* webpackChunkName: "gallary" */ '@/views/contactUs/roadmap.vue'),
+  },
+  {
+    path: '/mint',
+    name: 'mint',
+    meta: { title: 'mint' },
+    component: () =>
+      import(/* webpackChunkName: "gallary" */ '@/views/mint.vue'),
   },
   {
     path: '/*',
