@@ -105,7 +105,7 @@ export default {
   },
   methods: {
     handleChange(value) {
-      this.totalAmount = 0.01 * this.mintNum
+      this.totalAmount = 0.001 * this.mintNum
     },
     connectAccount(func) {
       // console.log("window.ethereum", window.ethereum);
@@ -182,7 +182,7 @@ export default {
               BigNumber.from(_this.mintNum),
               {
                 value: ethers.utils.parseEther(
-                  (0.01 * _this.mintNum).toString(),
+                  (0.001 * _this.mintNum).toString(),
                 ),
               },
             )
