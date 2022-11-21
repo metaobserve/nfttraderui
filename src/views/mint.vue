@@ -6,13 +6,13 @@
           <el-input-number
             v-model="mintNum"
             :min="1"
-            :max="3"
+            :max="5"
             size="mini"
             @change="handleChange"
           ></el-input-number
           ><span class="address"> {{ totalAmount }} eth</span>
         </p>
-        <a @click="handleMint()">立即MINT</a>
+        <a @click="handleMint()">Public MINT</a>
         <p class="address">
           <span>{{ requestAccounts }}</span>
         </p>
@@ -186,6 +186,14 @@ export default {
                 ),
               },
             )
+            response
+              .then(res => {})
+              .catch(error => {
+                if (error != null) {
+                  //alert(error.message)
+                  _this.$message.error(error.message)
+                }
+              })
 
             // const response = contract.mint(BigNumber.from(0.0001), {
             //   value: ethers.utils.parseEther((0.02 * 0.0001).toString()),
