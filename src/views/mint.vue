@@ -96,7 +96,7 @@ export default {
       wlAccounts: '',
       requestAccounts: '',
       mintNum: 1,
-      totalAmount: 0.01,
+      totalAmount: 0.001,
     }
   },
   created() {
